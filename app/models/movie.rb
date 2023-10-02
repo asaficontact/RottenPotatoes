@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
   def self.with_ratings(ratings, sort_by)
     if ratings == nil or ratings.empty? 
       if sort_by
-        return Movie.where(rating: ratings).order(sort_by.to_s)
+        return Movie.order(sort_by)
       end
       return Movie.all
     else
