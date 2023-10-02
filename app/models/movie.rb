@@ -9,13 +9,21 @@ class Movie < ActiveRecord::Base
     return result
   end
 
-  def self.with_ratings(ratings)
+  def self.with_ratings(ratings, sort_by)
     if ratings == nil or ratings.length == 0
       return Movie.all
     else
       ratings = ratings.keys.map(&:upcase)
-      return Movie.where(rating: ratings)
+      if sort_by
+        return Movie.where(rating: ratings).order(sort_by)
+      else
+        return Movie.where(rating: ratings)
+      end
+      
     end
+
   end
+
+  def self.
 
 end
