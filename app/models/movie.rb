@@ -24,6 +24,4 @@ class Movie < ActiveRecord::Base
 
   end
 
-  def self.
-
 end
