@@ -13,15 +13,17 @@ class Movie < ActiveRecord::Base
     if ratings == nil or ratings.empty? 
       if sort_by
         return Movie.order(sort_by)
+      else
+        return Movie.all
       end
-      return Movie.all
+      
     else
       ratings = ratings.keys.map(&:upcase)
-      return Movie.where(rating: ratings) 
+      if sort_by
+        return Movie.where(rating: ratings).order(sort_by)
+      else
+        return Movie.where(rating: ratings) 
     end
-
-    
-
   end
 
 end
