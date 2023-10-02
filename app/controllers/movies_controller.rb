@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
     end
 
-    if !params[:sort].nil?
+    if !params[:sort].nil? and !params.has_key?(:not_home)
       #@css_class = params[:sort]
       session[:sort] = params[:sort]
     end 
