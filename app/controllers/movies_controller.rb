@@ -12,8 +12,7 @@ class MoviesController < ApplicationController
     end
 
     if !params[:sort].nil?
-      @first_css_class = "hilite"
-      @second_css_class = "text-primary"
+      @css_class = "hilite text-primary"
       session[:sort] = params[:sort]
     end 
 
