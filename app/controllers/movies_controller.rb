@@ -22,7 +22,7 @@ class MoviesController < ApplicationController
     ratings = session[:ratings]
     @sort_by = session[:sort]
 
-    @movies = Movie.with_ratings(ratings, sort_by)
+    @movies = Movie.with_ratings(ratings, @sort_by)
     @all_ratings = Movie.all_ratings
 
     @ratings_to_show = []
