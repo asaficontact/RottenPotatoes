@@ -1,7 +1,12 @@
 class Movie < ActiveRecord::Base
 
   def self.all_ratings
-    Movie.select(:rating).distinct.to_s
+    result = []
+    extract = Movie.select(:rating).distinct
+    extract.each do |m|
+      result << m.rating
+    end
+    return result
   end
 
 end
