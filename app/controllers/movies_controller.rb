@@ -7,12 +7,15 @@ class MoviesController < ApplicationController
   end
 
   def index
+
+    @css_class = nil
+    
     if !params.has_key?(:not_home)
       session[:ratings] = params[:ratings]
     end
 
     if !params[:sort].nil?
-      @css_class = "hilite text-primary"
+      @css_class = "hilite bg-warning"
       session[:sort] = params[:sort]
     end 
 
