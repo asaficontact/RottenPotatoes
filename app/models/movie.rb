@@ -14,7 +14,7 @@ class Movie < ActiveRecord::Base
       return Movie.all
     else
       ratings = ratings.keys.map(&:upcase)
-      return Movie.where(rating: ratings.keys)
+      return Movie.where(rating: ratings)
     end
   end
 
