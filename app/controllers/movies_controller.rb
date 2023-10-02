@@ -12,6 +12,8 @@ class MoviesController < ApplicationController
       session[:ratings] = params[:ratings]
     end
     if !params[:sort].nil?
+      @first_css_class = "hilite"
+      @second_css_class = "text-primary"
       session[:sort] = params[:sort]
     end 
 
