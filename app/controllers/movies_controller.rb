@@ -4,12 +4,14 @@ class MoviesController < ApplicationController
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
     # will render app/views/movies/show.<extension> by default
+    params["not_home"] = 1
   end
 
   def index
-     
-    session[:ratings] = params[:ratings]
-    
+    if !params.has_key?(:not_home)
+      session[:ratings] = params[:ratings]
+    end
+
     if !params[:sort].nil?
       @first_css_class = "hilite"
       @second_css_class = "text-primary"
