@@ -15,7 +15,7 @@ class Movie < ActiveRecord::Base
     else
       ratings = ratings.keys.map(&:upcase)
       if sort_by
-        return Movie.where(rating: ratings).order(sort_by)
+        return Movie.where(rating: ratings).order(sort_by.to_s)
       else
         return Movie.where(rating: ratings)
       end
