@@ -22,7 +22,9 @@ class Movie < ActiveRecord::Base
       if sort_by
         return Movie.where(rating: ratings).order(sort_by)
       else
-        return Movie.where(rating: ratings) 
+        return Movie.where(rating: ratings)
+      end 
+      
     end
   end
 
