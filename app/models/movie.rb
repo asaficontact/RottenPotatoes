@@ -13,7 +13,7 @@ class Movie < ActiveRecord::Base
     if ratings == nil or ratings.length == 0
       return Movie.all
     else
-      ratings = ratings.map(&:upcase)
+      ratings = ratings.keys.map(&:upcase)
       return Movie.where(rating: ratings.keys)
     end
   end
