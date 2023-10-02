@@ -7,10 +7,9 @@ class MoviesController < ApplicationController
   end
 
   def index
+     
+    session[:ratings] = params[:ratings]
     
-    if !params[:ratings].nil? 
-      session[:ratings] = params[:ratings]
-    end
     if !params[:sort].nil?
       @first_css_class = "hilite"
       @second_css_class = "text-primary"
