@@ -12,8 +12,15 @@ class MoviesController < ApplicationController
       session[:params] = params
     end 
 
-    ratings = session[:params][:ratings]
-    sort_by = session[:params][:sort]
+    if !session[:params].nil?
+      ratings = session[:params][:ratings]
+      sort_by = session[:params][:sort]
+    else
+      ratings = params[:ratings]
+      sort_by = params[:sort]
+    end
+
+    
 
 
     @movies = Movie.with_ratings(ratings, sort_by)
