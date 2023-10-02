@@ -15,12 +15,12 @@ class MoviesController < ApplicationController
     end
 
     if !params[:sort].nil?
-      @css_class = params[:sort]
+      #@css_class = params[:sort]
       session[:sort] = params[:sort]
     end 
 
     ratings = session[:ratings]
-    sort_by = session[:sort]
+    @sort_by = session[:sort]
 
     @movies = Movie.with_ratings(ratings, sort_by)
     @all_ratings = Movie.all_ratings
