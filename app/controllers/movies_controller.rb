@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @ratings_to_show = []
     if ratings != nil
-    @ratings_to_show += ratings.keys
+      @ratings_to_show += ratings.keys
     end
   end
 
